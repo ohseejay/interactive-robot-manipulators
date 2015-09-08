@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>U-M EECS 598-010 - Interactive Robot Manipulators</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+
+    <!-- Combo with CSSNormalize, CSSGrids-Responsive, CSSForm, CSSTable, CSSList (v3.9.1) -->
+    <!-- odestcj: made these css files local
+    <link rel="stylesheet" href="http://yui.yahooapis.com/combo?3.9.1/build/cssnormalize/cssnormalize-min.css&amp;3.9.1/build/cssgrids-responsive/cssgrids-responsive-min.css&amp;3.9.1/build/cssbutton/cssbutton-min.css&amp;gallery-2013.03.27-22-06/build/gallerycss-csslist/gallerycss-csslist-min.css&amp;gallery-2013.03.27-22-06/build/gallerycss-csstable/gallerycss-csstable-min.css&amp;gallery-2013.03.27-22-06/build/gallerycss-cssform/gallerycss-cssform-min.css">
+    -->
+    <link rel="stylesheet" href="cssnormalize-min.css">
+    <link rel="stylesheet" href="cssgrids-responsive-min.css">
+    <link rel="stylesheet" href="cssbutton-min.css">
+    <link rel="stylesheet" href="gallerycss-csslist-min.css">
+    <link rel="stylesheet" href="gallerycss-csstable-min.css">
+    <link rel="stylesheet" href="gallerycss-cssform-min.css">
+    
+    <!-- Some custom styles to make things pretty. -->
+    <link rel="stylesheet" type="text/css" href="ui.css">
+
+    <!-- RainbowJS Syntax Highlighting - Github Theme. 
+         For more themes, go to https://github.com/ccampbell/rainbow/tree/master/themes -->
+    <!-- odestcj: made this css files local
+    <link rel="stylesheet" type="text/css" href="https://rawgithub.com/ccampbell/rainbow/master/themes/github.css">
+    -->
+    <link rel="stylesheet" type="text/css" href="github.css">
+
+    <!-- Modify header colors here to customize the look and feel of the site-->
+    <style>
+        
+        .header {
+            /* background: rgb(53, 41, 116); */
+             background: rgb(0, 39, 76);
+         }
+            .header h1 {
+                color: white;
+            }
+             .header h2 {
+                 font-weight:300;
+                 margin:0;
+                 color: rgb(116, 130, 230);
+             }
+    </style>
+
+    <!-- ocj: from http://www.htmlcodetutorial.com/linepar/index_famsupp_111.html#G0uYbQJvZ3UY283Q.99 -->
+    <STYLE TYPE="text/css"> <!-- .indented { padding-left: 50pt; padding-right: 50pt; } --> </STYLE>
+</head>
+
+<body class='yui3-skin-sam'>
+
+    <div id="headerMenu" class="yui3-menu yui3-menu-open yui3-menu-horizontal yui3-menu-fixed">
+        <span class="yui3-menu-heading">UM EECS 598-010</span>
+        <ul>
+            <li class="yui3-menu-active"><a href="#schedule">schedule</a></li>
+            <li><a href="#structure">structure</a></li>
+            <li><a href="#prep_project">prep project</a></li>
+            <li><a href="#reviewpresent">reviewpresent</a></li>
+            <li><a href="#final_project">final project</a></li>
+        </ul>
+    </div>
+    <div class="header yui3-u-1">
+
+        <h1 class="yui3-u-1">U-M EECS 598-010</h1>
+        <h2 class="yui3-u">Interactive Robot Manipulators</h2>
+        <br>
+        <h2 class="yui3-u">Fall 2015</h2>
+
+     </div>
+    <div class="content">
+<p>
+<img src="irm_teaser.jpg">
+
+<p>
+
+Interactive Robot Manipulators (EECS 598-010) is a graduate-level seminar course covering core topics and recent advances in robotic mobile manipulation with a view into human-robot interaction.  This course is intended to prepare students for conducting research along the computational and empirical dimensions of robotics.  The primary emphasis of this course is the computational aspects of robot reasoning in relation to perception and decision making.  That is, assuming we have an existing robot manipulation platform, how do we program it to see things in its environment, appropriately manipulate the things its environment, act to achive a goal given by a person, and (perhaps) learn new abilities from a person?  We examine these questions through coverage of textbook topics in robot modeling and control, analysis of recent and seminal research publications, and development of a novel project.
+
+</p>
+
+<h3>Instructor</h3>
+
+<p>Chad Jenkins 
+<br>
+Office: Beyster 3644
+<p>
+<h3>Office Hours</h3> 
+<P>
+Monday 3-4:30pm
+<br>
+Tuesday 2-3:30pm (when not conflicting with travel or other necessary meetings)
+
+<h3>Meeting time/place</h3>
+<p>
+Monday/Wednesday 1:30-3pm in Dow 2150
+
+<h3>Mailing list</h3>
+
+<p>
+<a href="TBD">TBD</a>
+
+<h3>Prerequisites</h3> 
+
+<p>
+Any one of the following: graduate standing, or permission from the Instructor.
+</p>
+
+<h3>Highly Recommended Background</h3> 
+<p>
+Linear alegebra and introductory robotics (e.g., EECS 467)
+</p>
+
+<h3>Recommended Background</h3> 
+<p>
+Differential equations, Computer vision, Artificial Intelligence, and Computer graphics
+</p>
+
+
+<h2 id="structure">Course Structure and Policies</h2> 
+
+<h3 id="overview">Overview</h3> 
+<p>
+The progression for the course will: 1) start with an introductory review of core topics in robot modeling and control leading up to an preparatory project, 2) follow with analysis of recent published papers for in-class presentation, and 3) end with final project for implementing a new idea from course topics.  
+</p>
+
+<h4>Introductory Review and Project</h4>
+
+<p>
+The introductory review will cover forward kinematics, quaternions, PID control, and inverse kinematics, leading into sample-based motion planning.  The preparatory project will build on this review for implementing a kinematic robot model with inverse kinematics control.  This preparatory project is due on October 21 and can be implemented in any programming language such that: 1) coordinate frames of the robot can be spatially displayed and 2) the code can be compiled and run by the course staff from build instructions.
+</p>
+
+<h4>Analysis and Presentation of Published Research</h4>
+
+<p>
+Course coverage of research papers will survey recent and/or seminal publications in scene estimation, 3D point cloud processing, grasp estimation, semantic mapping, state estimation, sequential planning, affordance modeling, and learning from demonstration, as well as selected perspectives from human-robot interaction.  Each student is expected to review 2 papers, following the <a href="#reviewing">proper paper review structure</a>.  One of these reviewed papers is expected to be presented in class, following the <a href="#presenting">proper paper presentation structure</a>.  Selection of papers will occur during the course meetingperiods up through September 21, the deadline for paper selection.  First come, first served. 
+</p>
+
+<p>
+To ensure thoroughness in discussion, each paper in class is expected to have a primary reviewer (i.e., the presenter) and a secondary reviewer.  To prepare in-class presentation, both the primary presenter and secondary reviewers must meet with the course instructor <a href="http://e.ggtimer.com/1week">one week before</a> the scheduled presentation.  At this meeting, the primary and secondary reviewers must have completed reviews of the paper for discussion, and the primary reviewer must present the current draft of their slides.  
+</p>
+
+<h4>Final Project and Presentation</h4>
+
+<p>
+The coverage of research papers will lead up to a final project for reimplementing a research paper from the course with an additional approved feature.  In their ideal form, a final project would extend a concept from the course in a new and interesting direction that would be worthy of future publication.  Course projects must be implemented independently.  Proposals for course projects will be evaluated on an ongoing basis up to November 2, 2015, the deadline for final project approval.  Course projects must include an intermediate milestone (for review in class on November 30, 2015) and final deliverable (for in-class presentation and review on December 14, 2015).  While not required, final projects are highly encouraged to include a descriptive web page and/or publication-formatted report (such as for the <a href="http://www.roboticsconference.org/resources/paper-template-latex.tar.gz">R:SS 2016 Conference</a> perhaps).
+</p>
+
+<br>
+
+<h3>Textbooks (optional)</h3>
+<p>
+There is no required textbook for this course.  However, enrolled students are highly recommended to review the following books for:
+</p>
+
+<p>
+Forward kinematics and inverse kinematics (Note: we will not use D-H parameters): 
+</p>
+<p class="indented">
+<a href="http://bcs.wiley.com/he-bcs/Books?action=index&itemId=0471649902&bcsId=2888"><b>Robot Modeling and Control</b></a>
+<br>
+M. Spong, S. Hutchinson, and M. Vidyasagar
+<br>
+Wiley, 2005 
+</p>
+
+<p>
+Motion planning and state estimation:
+</p>
+
+<p class="indented">
+<a href="http://mitpress.mit.edu/books/principles-robot-motion"><b>Principles of Robot Motion</b></a>
+<br>
+H. Choset, K. Lynch, S. Hutchinson, G. Kantor, W. Burgard, L. Kavraki and S. Thrun
+<br>
+MIT Press, 2005
+</p>
+
+
+<p>
+Supervisory control and human-robot interaction:
+</p>
+
+<p class="indented">
+<a href="http://mitpress.mit.edu/books/telerobotics-automation-and-human-supervisory-control"><b>Telerobotics, automation, and human supervisory control</b></a><br>
+T. Sheridan<br>
+MIT Press, 1992.
+</p>
+
+<p>
+JavaScript, as a good baseline for those with little but some programming experience:
+</p>
+
+<p class="indented">
+<a href="http://shop.oreilly.com/product/9780596517748.do"><b>JavaScript: The Good Parts</b></a>
+<br>
+Douglas Crockford
+<br>
+O'Reilly Media / Yahoo Press, 2008
+</p>
+
+<h3 id="structure">Grading</h3>
+
+<p>
+There will be 7 graded assignments in EECS 598-010 to ensure proper preparation for success in robotics research:
+</p>
+
+<p class="indented">
+Preparatory project (25%) <br>
+2 Paper reviews (5% each)  <br>
+In-class paper presentation (15%) <br>
+Final project proposal and approval (5%) <br>
+Final project: intermediate milestone (5%) <br>
+Final project presentation (40%) <br>
+</p>
+
+<p>
+Except for the final project presentation, EECS 598-010 projects are graded as “checked” (completed) or “not checked” (incomplete).  The grade for the final project presentation will be assessed by the instructor based on the quality of the final project implementation and in-class presentation.  The timing and due dates for these projects will be announced on an ongoing basis.
+</p>
+
+<h3>Late Policy</h3>
+<p>
+Do not submit assignments late.  All assignments must be completed on time for full consideration in grading.  The course staff reserves the right to not grade late submissions.  
+</p>
+
+<p>
+Grading will be finalized on December 14, 2015, after which no reconsideration of grading will be considered.
+</p>
+
+<h3>Grading</h3> 
+
+<p>
+To receive an A grade in EECS 598-010, the assigned grades for all student coursework must sum to at least 95% of the possible (100%) scoring.  
+</p>
+
+<p>
+For a B grade, coursework grades must sum to at least 85% of the possible scoring.  
+</p>
+
+<p>
+For a C grade, coursework grades must sum to at least 75% of the possible scoring.  
+</p>
+
+<p>
+For a D grade, coursework grades must sum to at least 65% of the possible scoring.  
+</p>
+
+<p>
+A failing grade will be assessed for coursework that does not meet the standard for a D grade.  
+</p>
+
+<p>
+The instructor reserves the option to assign appropriate course grades with plus or minus modifiers.
+</p>
+
+
+<h3>Repositories</h3>
+
+<p>
+Git-based repositories will be used for project implementation, version control, submission, and grading.  Project implementations are submitted as branches in your assigned repository. These branches must be submitted prior to the due date for each assignment.  Depending on the nature of the assignment, your implementation will be checked out and executed by the course staff during the grading assessment.  You will be notified by the course staff whether your submission is sufficient to be considered checked/completed. If your assignment is insufficient for receiving a check, feedback will be provided in your repository and should be corrected immediately.
+</p>
+
+<p>
+You are expected to provide a <b>private</b> git repository for your work in this course with the course instructor added as a read/write collaborator.  If needed, the course staff can assist in the setup of an online git repository through providers such as <a href="https://github.com/">github</a> or <a href="https://bitbucket.org/">bitbucket</a>).  Your repository is expected to have the following subdirectories, at a minimum, as well as the file "grading.txt" with your updated course grading status:
+</p>
+
+<p class="indented">
+<b>p_project</b>: containing implementation and build and execution instructions for the preparatory project<br>
+<b>reviews</b>: containing reviews of assigned papers in plain text format<br> 
+<b>presentation</b>: containing paper presentation slides in PDF format<br>
+<b>proposal</b>: containing final project proposal in plain text format<br>
+<b>f_project</b>: containing final project implementation and slides (in PDF format) <br>
+</p> 
+
+<p>
+Please refer to the <a href="http://www.git-scm.com/book/en/v2">Pro Git book</a> for an in-depth introduction to git and version control.  As different people often learn through different styles, the <a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/">Git Magic tutorial</a> has also proved quite useful when a different perpective is needed.  <a href="http://rogerdudler.github.io/git-guide/">git: the simple guide</a> has often been a great and accessible quick start resource. 
+</p>
+
+<p>
+We expect students to use these repositories for collaborative development as well as project submission. It is the responsibility of each student group to ensure their repository adheres to the Collaboration Policy and submission standards for each assignment. Submission standards and examples will be described for each assignment as needed.
+</p>
+
+<h3>Collaboration Policy</h3>
+<p>
+ This policy covers all course material and assignments unless otherwise stated. Course material, concepts, and documentation may be discussed with anyone.  Assignments may be discussed with the other students at the conceptual level.  Discussions may make use of a whiteboard or paper.  Discussions with others (or people outside of your assigned group) cannot include writing or debugging code on a computer or collaborative analysis of source code that is not your own. You may take notes away from these discussions, provided these notes do not include any source code.
+</p>
+
+<p>
+The code for your implementation may not be shown to anyone outside of your group, including granting access to repositories or careless lack of protection. You do not need to hide the screen from anyone, but you should not attempt to show anyone your code. When you are done using any robot device such that another group may use it, you must remove all code you have put onto the device. You may not share your code with others outside of your group. At any time, you may show others the implemented program running on a device or simulator, but you may not discuss specific debugging details about your code while doing so.
+</p>
+
+<p>
+This policy applies not only applies to collaboration during the current semester, but also any past or future instantiations of this course.  Although course concepts are intended for general use, your implementation for this course must remain private after the completion of the course.  It is expressly prohibited to share any code previously written and graded for this course with students currently enrolled in this course.  Similarly, it is expressly prohibited for any students currently enrolled in this course to refer to any code previously written and graded for this course.
+</p>
+
+<p>
+Should you fail to abide by this policy, you will receive no credit for this course.  The University of Michigan reserves the right to pursue any means necessary to ensure compliance. This includes, but is not limited to prosecution through The College of Engineering’s Honor Council, which can result in your suspension or expulsion from the University of Michigan.  Please refer to the <a href ="http://ossa.engin.umich.edu/honor-council/">Engineering Honor Council</a> for additional information.
+</p>
+
+<h2 id="schedule">Course Schedule (tentative and subject to change)</h2>
+
+<p>
+Papers below are categorized into one of three "Type" labels related to how it will covered in class: 
+</p>
+
+<p>
+P: In-class student presentation of primary course topic<br>
+R: In-class student presentation of a prerequsite course topic<br>
+S: Supplementary paper that will not be covered in class<br>
+</p>
+
+
+<table cellpadding=5 border=0  width="100%">
+<tr bgcolor="#dddddd">     
+        <th style="width:70px"><b><center>Date</center></b></th> 
+        <th style="width:40px"><b><center>Type</center></b></th> 
+        <th style="width:600px"><b><center>Topic/Paper</center></b></th>
+        <th style="width:100px"><b><center>Presenter</center></b></th>
+        <th style="width:100px"><b><center>Secondary</center></b></th>
+        <th style="width:75px"><b><center>Slides</center></b></th>
+        <th style="width:100px"><b><center>Project</center></b></th>
+</tr>
+
+<tr>
+    <td><b>Sep 9</b></td>
+    <td></td>
+    <td>
+         <u> Initialization </u><br>
+         Introduction, Paper assignments, etc.
+    </td>
+    <td>Instructor</td> 
+    <td>--</td>
+    <td><a href="">Slides</a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td colspan="6"> </td>
+    <td>
+        <a href="#prep_project">Assigned: Preparatory Project</a>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="6"> </td>
+    <td>
+        <a href="#paper_review_and_present">Assigned: Paper Presentation Selections</a>
+
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td><b>Sep 14</b></td>
+    <td></td>
+    <td>
+         <u> Forward Kinematics </u><br>
+    </td>
+    <td>Instructor</td> 
+    <td>--</td>
+    <td><a href="">Slides</a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td><b>Sep 16</b></td>
+    <td></td>
+    <td>
+         <u> Quaternions and PID Control </u><br>
+    </td>
+    <td>Instructor</td> 
+    <td>--</td>
+    <td><a href="">Slides</a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td><b>Sep 21</b></td>
+    <td></td>
+    <td>
+         <u> Inverse Kinematics </u><br>
+    </td>
+    <td>Instructor</td> 
+    <td>--</td>
+    <td><a href="">Slides</a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td colspan="6"> </td>
+    <td>
+        <a href="#paper_review_and_present">Due: Paper Presentation Selections</a>
+    </td>
+</tr>
+
+
+<tr>
+    <td colspan="6"> </td>
+    <td>
+        <a href="#final_project">Assigned: Project Proposal and Approval</a>
+    </td>
+</tr>
+
+
+<tr bgcolor="#dddddd">
+    <td><b>Sep 23</b></td>
+    <td colspan="6"><b>Motion Planning</b></td>
+</tr>
+
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         J. Kuffner, S. LaValle, <a href="https://personalrobotics.ri.cmu.edu/courses/papers/Kuffner00-rrtconnect.pdf">RRT-Connect: An Efficient Approach to Single-Query Path Planning</a>, <i>ICRA</i>, 2000. 
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         E. You, K. Hauser, <a href="http://www.cs.indiana.edu/~hauserk/papers/RSS2011_AssistedTeleoperation.pdf">Assisted Teleoperation Strategies for Aggressively Controlling a Robot Arm with 2D Input</a>, <i>R:SS</i>, 2011. 
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr bgcolor="#dddddd">
+    <td><b>Sep 28</b></td>
+    <td colspan="6"><b> Shared Autonomy and Affordances </b></td>
+</tr>
+
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         M. Goodrich, D. Olson, J. Crandall et al., <a href="https://faculty.cs.byu.edu/~mike/mikeg/papers/IJCAI01.pdf">Experiments in Adjustable Autonomy</a>, <i>IJCAI</i>, 2001.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>S</td>
+    <td>
+         G. Pratt et al., <a href="https://youtu.be/8P9geWwi9e0">Video: DARPA Robotics Challenge Finals</a>, 2015.<br><br>
+         ... and <a href="https://youtu.be/qrfvwFcan3M">Video: DRC Finals Robot Falls</a>, 2015.<br>
+    </td>
+    <td><b></b></td> 
+    <td><b></b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>S</td>
+    <td>
+         T. Koolen, J. Smith, J. Pratt et al., <a href="https://www.researchgate.net/publication/256422371_Summary_of_Team_IHMC's_Virtual_Robotics_Challenge_entry">Summary of Team IHMC's Virtual Robotics Challenge entry</a>, <i>IEEE Humanoids</i>, 2013.<br>
+    </td>
+    <td><b></b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         S. Hart, P. Dinh, K. Hambuchen, <a href="http://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20150000509.pdf">The Affordance Template ROS Package for Robot Task Programming</a>, <i>ICRA</i>, 2015.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>S</td>
+    <td>
+         J. Gibson, <a href="https://books.google.com/books?hl=en&lr=&id=b9WWAwAAQBAJ&oi=fnd&pg=PA56&ots=KU_rALknzb&sig=J8MXh_C1byYB3EygzyKZad3N4BI#v=onepage&q&f=false">The Theory of Affordances</a>, in <i>Perceiving, Acting, and Knowing: Toward a Ecological Psychology</i>, Lawrence Erlbaum Associates, 1977.<br>
+    </td>
+    <td><b></b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td><b>Sep 30</b></td>
+    <td colspan="6">
+         <b><u> No class:</u></b>
+         <a href="http://iros2015.org">IROS 2015</a>
+    </td>
+</tr>
+
+<tr bgcolor="#dddddd">
+    <td><b>Oct 5</b></td>
+    <td colspan="6"><b> Grasp Planning </b></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         M. Ciocarlie, P. Allen, <a href="http://virtualhost.cs.columbia.edu/~allen/PAPERS/ciocarlieallenijrr.pdf">Hand Posture Subspaces for Dexterous Robotic Grasping</a>, <i>IJRR</i>, 28(7), 2009. 
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         A. ten Pas, R. Platt, <a href="http://www.ccs.neu.edu/home/atp/publications/affordances_iser2014_final.pdf">Localizing Handle-Like Grasp Affordances in 3D Point Clouds</a>, <i>ISRR</i>, 2014. 
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>R</td>
+    <td>
+         <u>Principal Component Analysis </u><br>
+         J. Shlens, <a href="http://arxiv.org/pdf/1404.1100.pdf">A Tutorial on Principal Component Analysis</a>, <i>arXiv</i>, 1404:1100, 2014.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+
+<tr>
+    <td></td>
+    <td>S</td>
+    <td>
+         A. Leeper, K. Hsiao, L. Takayama et al., <a href="http://www.leilatakayama.org/downloads/Takayama.HitLGrasping_HRI2012_prepress.pdf">Strategies for Human-in-the-Loop Robotic Grasping</a>, <i>HRI</i>, 2012. 
+    </td>
+    <td><b></b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>S</td>
+    <td>
+         A. Fod, M. Mataric, O. Jenkins, <a href="https://dl.dropboxusercontent.com/u/14050575/papers/ar2002_fod.pdf">Automated Derivation of Primitives for Movement Classification</a>, <i>Autonomous Robots</i>, 12(1), 2002. 
+    </td>
+    <td><b></b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+
+<tr bgcolor="#dddddd">
+    <td><b>Oct 7</b></td>
+    <td colspan="6"><b> Task-level Planning and Symbolic Inference </b></td>
+</tr>
+
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         R. Fikes, N. Nilsson, <a href="http://www.sci.brooklyn.cuny.edu/~sklar/teaching/s06/ai/papers/strips.pdf">STRIPS: A New Approach to the Application of Theorem Proving and Problem Solving</a>, <i>IJCAI</i>, 1971.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         J. Kirk, J. Laird, <a href="http://web.eecs.umich.edu/~soar/sitemaker/docs/pubs/kirklairdACS2013.pdf">Learning Task Formulations through Situated Interactive Instruction</a>, <i>ACS</i>, 2013.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+
+<tr>
+    <td></td>
+    <td>S</td>
+    <td>
+         T. Winograd, <a href="https://en.wikipedia.org/wiki/SHRDLU">SHRDLU</a>, <i>MIT AI Tech Reports</i>, 235, 1971.<br>
+    </td>
+    <td><b></b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<!--
+<tr>
+    <td></td>
+    <td colspan="5"><font color=#ff0000> Add another paper: Knowrob? </font></td>
+</tr>
+-->
+
+
+
+<tr bgcolor="#dddddd">
+    <td><b>Oct 12-14</b></td>
+    <td colspan="6"><b> Semantic Mapping and Symbol Grounding </b></td>
+</tr>
+
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         R. Rusu, Z. Marton, M. Beetz et al., <a href="http://www.willowgarage.com/sites/default/files/Rusu08RAS-Semantic.pdf">Towards 3D point cloud based object maps for household environments</a>, <i>Robotics and Autonomous Systems</i>, 56(11), 2008.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+
+<tr>
+    <td></td>
+    <td>R</td>
+    <td>
+         <u> Iterative Closest Point Registration </u><br>
+         P. Besl, N. McKay, <a href="http://eecs.vanderbilt.edu/courses/cs359/other_links/papers/1992_besl_mckay_ICP.pdf">A Method for Registration of 3-D Shapes</a>, <i>IEEE PAMI</i>, 14(2), 1992.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+
+<tr>
+    <td></td>
+    <td>R</td>
+    <td>
+         <u> Moving Least Squares Surfaces </u><br>
+         M. Alexa, J. Behr, D. Cohen-Or et al., <a href="http://www.sci.utah.edu/~shachar/Publications/crpss.pdf">Computing and Rendering Point Set Surfaces</a>, <i>IEEE TVGC</i>, 9(1), 2003.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         B. Kuipers, <a href="ftp://net9.cs.utexas.edu/pub/qsim/papers/Kuipers-aij-00.pdf">The Spatial Semantic Hierarchy</a>, <i>Artificial Intelligence</i>, 119, 2000.<br>
+         <!--- http://www.cs.cmu.edu/afs/cs/Web/People/motionplanning/papers/sbp_papers/k/Kuipers-aij-00-elsevier.pdf -->
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+
+<tr>
+    <td></td>
+    <td>S</td>
+    <td>
+         S. Harnad, <a href="https://www.researchgate.net/profile/Stevan_Harnad/publication/222483402_The_symbol_grounding_problem/links/0c96053a371d3e632b000000.pdf">The Symbol Grounding Problem</a>, <i>Physica D Nonlinear Phenomena</i>, 42(1-3), 1990.<br>
+    </td>
+    <td><b></b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>S</td>
+    <td>
+         S. Coradeschi, A. Saffiotti, <a href="http://www8.cs.umu.se/research/ifor/dl/SEQUENCE%20LEARINIG/An%20introduction%20to%20the%20anchoring%20problem.pdf">An Introduction to the Anchoring Problem</a>, <i>Robotics and Autonomous Systems</i>, 43(2), 2003.<br>
+    </td>
+    <td><b></b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td><b>Oct 19</b></td>
+    <td colspan="6">
+         <b><u> No class:</u></b>
+         Fall Study Break
+    </td>
+</tr>
+
+
+<tr bgcolor="#dddddd">
+    <td><b>Oct 21</b></td>
+    <td colspan="6"><b> State Estimation and Probablistic Inference </b></td>
+</tr>
+
+<tr>
+    <td colspan="6"> </td>
+    <td>
+        <a href="#prep_project">Due: Preparatory Project</a>
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         J. Deutscher, A. Blake, I. Reid, <a href="http://www.robots.ox.ac.uk/~lav/Publications/deutscher_etal_cvpr2000/deutscher_etal_cvpr2000.pdf">Articulated Body Motion Capture by Annealed Particle Filtering</a>, <i>CVPR</i>, 2000.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         C. Choi, H. Christensen, <a href="http://people.csail.mit.edu/cchoi/pub/Choi13iros_gputracking.pdf">RGB-D Object Tracking: A Particle Filter Approach on GPU</a>, <i>IROS</i>, 2013.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>S</td>
+    <td>
+         F. Dellaert, D. Fox et al., <a href="http://www.ri.cmu.edu/pub_files/pub1/dellaert_frank_1999_2/dellaert_frank_1999_2.pdf">Monte Carlo Localization for Mobile Robots</a>, <i>ICRA</i>, 1999.<br>
+    </td>
+    <td><b></b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>S</td>
+    <td>
+         G. Welch, G. Bishop, <a href="http://www.cs.unc.edu/~welch/media/pdf/kalman_intro.pdf">An Introduction to the Kalman Filter</a>, <i>UNC Tech Report</i>, TR 95-041, 2006.<br>
+    </td>
+    <td><b></b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>S</td>
+    <td>
+         E. Olson, J. Leonard, S. Teller <a href="http://rvsn.csail.mit.edu/content/eolson/graphoptim/eolson-graphoptim2006.pdf">Fast Iterative Alignment of Pose Graphs with Poor Initial Estimates</a>, <i>ICRA</i>, 2006.<br>
+    </td>
+    <td><b></b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+
+
+<tr bgcolor="#dddddd">
+    <td><b>Oct 26</b></td>
+    <td colspan="6"><b> Relational Perception </b></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td></td>
+    <td colspan="5"><u> Discussion</u><br>
+    <a href="http://stackoverflow.com/questions/879432/what-is-the-difference-between-a-generative-and-discriminative-algorithm">Discriminative versus Generative Inference</a>
+    </td>
+</tr>
+
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         B. Rosman, S Ramamoorthy, <a href="http://homepages.inf.ed.ac.uk/s0896970/papers/ijrr11.pdf">Learning Spatial Relations Between Objects</a>, <i>IJRR</i>, 30(11), 2011.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         Z. Sui, O. Jenkins, K. Desingh, <a href="https://dl.dropboxusercontent.com/u/14050575/papers/zsui_iros2015.pdf">Axiomatic Particle Filtering for Goal-directed Robotic Manipulation</a>, <i>IROS</i>, 2015.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr bgcolor="#dddddd">
+    <td><b>Oct 28</b></td>
+    <td colspan="6"><b> Learning from Demonstration </b></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         W. Smart, L. Kaelbling, <a href="http://web.engr.oregonstate.edu/~smartw/library/papers/2002/icra2002.pdf">Effective Reinforcement Learning for Mobile Robots</a>, <i>ICRA</i>, 2002.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         S. Niekum, S. Chitta, S. Osentoski et al., <a href="http://www.roboticsproceedings.org/rss09/p48.pdf">Incremental Semantically Grounded Learning from Demonstration</a>, <i>R:SS</i>, 2013.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         C. Chao, M. Cakmak, A. Thomaz, <a href="https://smartech.gatech.edu/bitstream/handle/1853/42279/Towards%20Grounding%20Concepts%20for%20Transfer%20in%20Goal%20Learning%20from%20Demonstration.pdf">Towards Grounding Concepts for Transfer in Goal Learning from Demonstration</a>, <i>ICDL</i>, 2011.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+
+
+<tr>
+    <td></td>
+    <td>S</td>
+    <td>
+         C. Atkeson, A. Moore, S. Schaal, <a href="http://www.qou.edu/arabic/researchProgram/distanceLearning/locallyWeighted.pdf">Locally Weighted Learning</a>, <i>Artificial Intelligence Review</i>, 11(1-5), 1997.<br>
+    </td>
+    <td><b></b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>S</td>
+    <td>
+         L. Kaelbling, M. Littman, A. Cassandra, <a href="ftp://ftp.cs.brown.edu/pub/techreports/96/cs96-08.pdf">Planning and Acting in Partially Observable Stochastic Domains</a>, <i>Artificial Intelligence</i>, 101(1-2), 1998.<br>
+    </td>
+    <td><b></b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>S</td>
+    <td>
+         B. Argall, S. Chernova, M. Veloso et al., <a href="http://www.cs.cmu.edu/~coral/old/publinks/brettb/09ras-brenna.pdf">A Survey of Robot Learning from Demonstration</a>, <i>Robotics and Autonomous Systems</i>, 57(5), 2008.<br>
+    </td>
+    <td><b></b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+
+<tr>
+    <td></td>
+    <td>S</td>
+    <td>
+         D. Grollman, O. Jenkins, <a href="https://dl.dropboxusercontent.com/u/14050575/papers/dang_icra2008.pdf">Sparse Incremental Learning for Interactive Robot Control Policy Estimation</a>, <i>ICRA</i>, 2008.<br>
+    </td>
+    <td><b></b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>S</td>
+    <td>
+         D. Grollman, O. Jenkins, <a href="https://dl.dropboxusercontent.com/u/14050575/papers/dang_ICRA_2007.pdf">Dogged Learning for Robots</a>, <i>ICRA</i>, 2007.<br>
+    </td>
+    <td><b></b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>S</td>
+    <td>
+         P. Abbeel, A. Ng, <a href="http://machinelearning.wustl.edu/mlpapers/paper_files/icml2004_PieterN04.pdf">Apprenticeship Learning via Inverse Reinforcement Learning</a>, <i>ICML</i>, 2004.<br>
+    </td>
+    <td><b></b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+
+
+
+<tr bgcolor="#dddddd">
+    <td><b>Nov 2</b></td>
+    <td colspan="6"><b> Relational Decision Making </b></td>
+</tr>
+
+<tr>
+    <td colspan="6"> </td>
+    <td>
+        <a href="#final_project">Due: Project Proposal and Approval</a>
+    </td>
+</tr>
+
+
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         T. Lang, M. Toussaing, K. Kersting, <a href="http://jmlr.org/papers/volume13/lang12a/lang12a.pdf">Exploration in Relational Domains for Model-based Reinforcement Learning</a>, <i>JMLR</i>, 2012.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         M. Tenorth, M. Beetz, <a href="http://ias.in.tum.de/_media/spezial/bib/tenorth09knowledge.pdf">KnowRob: A Knowledge Processing Infrastructure for Cognition-enabled Robots</a>, <i>IJRR</i>, 32(5), 2013.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+
+
+
+<tr bgcolor="#dddddd">
+    <td><b>Nov 4</b></td>
+    <td colspan="6"><b> Physics-based Particle Filtering </b></td>
+</tr>
+
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         M. Vondrak. L. Sigal, O. Jenkins, <a href="https://dl.dropboxusercontent.com/u/14050575/papers/marek_pami2012.pdf">Dynamical Simulation Priors for Human Motion Tracking</a>, <i>IEEE PAMI</i>, 35(1), 2013.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         L. Zhang, S. Lyu, J. Trinkle, <a href="http://www.cs.rpi.edu/research/pdf/12-04.pdf">A Dynamic Bayesian Approach to Real-Time Estimation and Filtering in Grasp Acquisition</a>, <i>ICRA</i>, 2013.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>S</td>
+    <td>
+         T. Jakobsen, <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15462-s13/www/lec_slides/Jakobsen.pdf">Advanced Character Physics</a>, <i>Gamasutra Magazine</i>, January 21, 2003.<br>
+    </td>
+    <td><b></b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+
+
+
+
+
+
+
+
+
+<tr bgcolor="#dddddd">
+    <td><b>Nov 9</b></td>
+    <td colspan="6"><b> Potential-based Control </b></td>
+</tr>
+
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         O. Khatib, <a href="">Real-Time Obstacle Avoidance for Manipulators and Mobile Robots</a>, <i>IJRR</i>, 5(1), 1986.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         R. Platt, A. Fagg, R. Grupen, <a href="http://www.cse.buffalo.edu/~robplatt/papers/tro_platt2010.pdf">Null Space Grasp Control: Theory and Experiments</a>, <i>IEEE T-RO</i>, 26(2), 2010.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr bgcolor="#dddddd">
+    <td><b>Nov 11</b></td>
+    <td colspan="6"><b> Pictorial Structures </b></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         P. Felzenszwalb, D. Huttenlocher, <a href="http://www.cs.cornell.edu/~dph/papers/pict-struct-ijcv.pdf">Pictorial Structures for Object Recognition</a>, <i>IJCV</i>, 61(1), 2013.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         J. Yedidia, W. Freeman, Y. Weiss, <a href="http://www.vision.jhu.edu/reading_group/TR2001-22.pdf">Understanding Belief Propagation and its Generalizations</a>, <i>Exploring Artificial Intelligence in the New Millennium</i>, 8, 2003.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr bgcolor="#dddddd">
+    <td><b>Nov 16</b></td>
+    <td colspan="6"><b> Geometry Annotation and Registration </b></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         T. Chen, Z. Zhu, D. Cohen-Or et al., <a href="https://www.researchgate.net/publication/262425949_3-Sweep_Extracting_Editable_Objects_from_a_Single_Photo">3-Sweep: Extracting Editable Objects from a Single Photo</a>, <i>ACM ToG</i>, 32(6), 2013.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         C. Papazov, S. Haddadin, D. Burschka et al., <a href="http://www6.in.tum.de/Main/Publications/Papazov2012.pdf">Rigid 3D Geometry Matching for Grasping of Known Objects in Cluttered Scenes</a>, <i>IJRR</i>, 31(4), 2012.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr bgcolor="#dddddd">
+    <td><b>Nov 18</b></td>
+    <td colspan="6"><b> Crowdsourcing Robot Learning </b></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         C. Crick, T. Jay, O. Jenkins et al., <a href="https://dl.dropboxusercontent.com/u/14050575/papers/chriscrick_hri_2011.pdf">Human and Robot Perception in Large-scale Learning from Demonstration</a>, <i>HRI</i>, 2011.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>P</td>
+    <td>
+         R. Toris, D. Kent, S. Chernova, <a href="http://hri-journal.org/index.php/HRI/article/download/149/pdf_1">The Robot Management System: A Framework for Conducting Human-Robot Interaction Studies Through Crowdsourcing</a>, <i>JHRI</i>, 3(2), 2011.<br>
+    </td>
+    <td><b>Open</b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>S</td>
+    <td>
+         D. Kent, M. Behrooz, S. Chernova, <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=6907520&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D6907520">Crowdsourcing the construction of a 3D object recognition database for robotic grasping</a>, <i>ICRA</i>, 2014.<br>
+    </td>
+    <td><b></b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td></td>
+    <td>S</td>
+    <td>
+         K. Goldberg, M. Mascha, S. Gentner et al., <a href="http://queue.ieor.berkeley.edu/~goldberg/pubs/mercury-may1995.pdf">Desktop Teleoperation via the World Wide Web</a>, <i>ICRA</i>, 1995.<br>
+    </td>
+    <td><b></b></td> 
+    <td><b>Open</b></td>
+    <td><a href=""></a></td> 
+    <td></td> 
+</tr>
+
+
+
+
+
+
+<tr>
+    <td><b>Nov 23</b></td>
+    <td colspan="6"><u> TBD </u></td>
+</tr>
+
+<tr>
+    <td><b>Nov 25</b></td>
+    <td colspan="6">
+         <b><u> No class:</u></b>
+         Thanksgiving Break
+    </td>
+</tr>
+
+<tr bgcolor="#dddddd">
+    <td><b>Nov 30</b></td>
+    <td colspan="6">
+         <b>Final Project Intermediate Milestones</b>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="6"> </td>
+    <td>
+         <b>Due: Intermediate Project Presentation </b>
+    </td>
+</tr>
+
+
+<tr>
+    <td><b>Dec 2-9</b></td>
+    <td colspan="6"><u> TBD </u></td>
+</tr>
+
+
+
+<tr bgcolor="#dddddd">
+    <td><b>Dec 14</b></td>
+    <td colspan="6">
+         <b>Final Project Presentations</b>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="6"> </td>
+    <td>
+         <b>Due: Final Project Presentation </b>
+    </td>
+</tr>
+
+
+
+
+
+
+
+
+
+</table>
+
+
+<h2 id="prep_project">Preparatory Project: Robot Kinematics and Control</h2>
+<b>Due 12pm, Wednesday, October 21, 2015</b>
+<p>
+The purpose of the prepatory project is to ensure you have working knowledge of robot kinematics and control.  For this project, you will implement methods for representing robot forward kinematics, 3D rotation by quaternions, and endeffector control by inverse kinematics.  This project can be implemented in the programming environment of your choice and submitted through your repository.  If you are relatively inexperienced in computer programming, I would recommend using Matlab (if you have prior experience) or JavaScript (my current prototyping language of choice).  The preparatory project is a subset of <a href="http://browncs148.github.io/#assignment4">Assignments 4-6</a> from my Introduction to Autonomous Robotics course, which has <a href="https://github.com/odestcj/3jsbot_stencil">support code stencils</a> for HTML5/JavaScript.  Note: regardless of your choice of language, your implementation will require routines from linear algebra, including matrix multiplication, cross product, pseudoinverse, and matrix inversion.
+</p>
+
+<p>
+The project is defined as follows: your system must read as input:
+</p>
+
+<p class="indented"> a <a href="http://wiki.ros.org/urdf/Tutorials/Create%20your%20own%20urdf%20file">URDF</a>-like kinematic description of an arbitrary robot (an example in JSON is provided is below with <a href="https://github.com/odestcj/3jsbot_stencil/tree/master/robots">additional JavaScript examples</a> available)
+</p>
+
+<p>
+display as output: 
+</p>
+
+<p class="indented">
+ 1) a spatial display of the robot's joint and link frame axes and <br> 
+ 2) a spatial display of the robot's endeffector (specified separately as a point in given link frame)
+</p>
+
+<p>
+and provide interactive controls to: 
+</p>
+
+<p class="indented">
+ 1) rotate each joint individually about its motor axis <br> 
+ 2) invoke an inverse kinematics controller to reach the robot's endeffector to a target location in world coordinates <br> 
+</p>
+
+
+
+<pre><code data-language="javascript">
+// Example URDF-like robot description in JSON format
+robot = {
+        "name":"br2",
+        "origin":{"xyz":[0,0,0],"rpy":[0,0,0]},
+        "base":"base",
+        "links":{
+            "base":{},
+            "clavicle_right":{},
+            "clavicle_left":{},
+            "shoulder_right":{},
+            "upperarm_right":{},
+            "forearm_right":{}
+        },
+        "joints":{
+            "clavicle_right_yaw":{
+                "parent":"base",
+                "child":"clavicle_right",
+                "origin":{
+                    "xyz":[0.3,0.4,0],
+                    "rpy":[-1.5707963267948966,0,0]
+                },
+                "axis":[0,0,-1]
+            },
+            "shoulder_right_yaw":{
+                "parent":"clavicle_right",
+                "child":"shoulder_right",
+                "origin":{
+                    "xyz":[0,-0.15,0.85],
+                    "rpy":[1.5707963267948966,0,0]
+                    },
+                "axis":[0,0.707,0.707]
+            },
+            "upperarm_right_pitch":{
+                "parent":"shoulder_right",
+                "child":"upperarm_right",
+                "origin":{
+                    "xyz":[0,0,0.7],
+                    "rpy":[0,0,0]
+                },
+                "axis":[0,1,0]
+            },
+            "forearm_right_yaw":{
+                "parent":"upperarm_right",
+                "child":"forearm_right",
+                "origin":{
+                    "xyz":[0,0,0.7],
+                    "rpy":[0,0,0]
+                },
+                "axis":[1,0,0]
+            },
+            "clavicle_left_roll":{
+                "parent":"base",
+                "child":"clavicle_left",
+                "origin":{
+                    "xyz":[-0.3,0.4,0],
+                    "rpy":[-1.5707963267948966,0,0]
+                },
+                "axis":[0,0,1]
+            }
+        }
+    }
+</code></pre>
+</ul>
+
+<h2 id="reviewpresent">Paper Presentation and Review</h2>
+
+<h3 id="reviewing">Proper Paper Review Structure</h3>
+
+In preparation.
+
+<h3 id="presenting">Proper Paper Presentation Structure</h3>
+
+In preparation.
+
+<h2 id="final_project">Final Project Information</h2>
+
+<h3 id="proposal">Final Project Proposal Structure</h3>
+<b>Proposal Approval Due 4:30pm, Monday, November 2, 2015</b>
+
+<p>
+The final project proposal is a 1-2 page plain text file (2 pages max, not including appendices).  Project proposals must be submitted through your repository and will be evaluated during office hours or as needed.  This proposal should clearly address the following:
+</p>
+
+<p class="indented">
+<b>Problem</b>: identify the problem to solve, why is it important to solve, state your metric for success
+<br><b>Approach</b>: what parts of the problem will you solve, how will realize your solution, what parts of your solution are new
+<br><b>Evaluation</b>: how will you measure the success of your solution to the problem
+<br><b>Intermediate Milestone</b>: what will you show as your intermediate milestone to ensure progress is being made
+</p>
+
+<h3>Final Project Intermediate Milestone</h3>
+<b>Due 1:30pm, Monday, November 30, 2015</b>
+
+<p>
+The Intermediate Milestone will be a 5 minute in-class presentation on the progress of your final project with time for interactive questions and answers.
+</p>
+
+<h3>Final Project Intermediate Milestone</h3>
+<b>Due 1:30pm, Monday, December 14, 2015</b>
+
+<p>
+The Final Project Presentation will be a 15 minute in-class presentation on the results of your final project with time for interactive questions and answers.
+</p>
+
+
+
+        <!-- TYPEKIT -->
+<!--
+        <script type="text/javascript" src="//use.typekit.net/ajf8ggy.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <script src="https://rawgithub.com/ccampbell/rainbow/master/js/rainbow.min.js"></script>
+        <script src="https://rawgithub.com/ccampbell/rainbow/master/js/language/generic.js"></script>
+-->
+    </div>
+</body>
+</html>
